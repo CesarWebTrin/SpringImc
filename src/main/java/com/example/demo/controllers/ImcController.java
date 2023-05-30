@@ -11,11 +11,8 @@ import com.example.demo.services.ImcService;
 @RestController
 @RequestMapping("/imc")
 public class ImcController {
-    @Autowired
-    private ImcService svc;
-
     @PostMapping("/calculate")
-    public Person calculateImc(@RequestBody Person person) {
+    public Person calculateImc(@RequestBody Person person, @Autowired ImcService svc) {
         svc.calculate(person);
 
         return person;

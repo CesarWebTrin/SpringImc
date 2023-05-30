@@ -8,14 +8,15 @@ import com.example.demo.models.Person;
 public class ImcService {
     public ImcService() {
         super();
+        System.out.println("creating imcservice!");
     }
 
     public void calculate(Person person) {
         var imc = person.getWeight() / Math.pow(person.getHeight(), 2);
         var description = "Obesidade";
         if (imc < 18.5) description = "Magreza";
-        if (imc < 24.9) description = "Normal";
-        if (imc < 30) description = "Sobrepeso";
+        else if (imc < 24.9) description = "Normal";
+        else if (imc < 30) description = "Sobrepeso";
 
         person.setImc(imc);
         person.setDescription(description);
